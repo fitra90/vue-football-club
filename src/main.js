@@ -1,26 +1,31 @@
 import Vue from "vue";
+import VueRouter from "vue-router";
 import Buefy from "buefy";
-import axios from "axios";
 import "buefy/dist/buefy.css";
 import App from "./App.vue";
+import Areas from "./components/Areas.vue";
+import Clubs from "./components/Clubs.vue";
+import ClubProfile from "./components/ClubProfile.vue";
+import PlayerProfile from "./components/PlayerProfile.vue";
 
+const routes = [
+  { path: "/", component: Areas },
+  { path: "/clubs", component: Clubs },
+  { path: "/club-profile", component: ClubProfile },
+  { path: "/player-profile", component: PlayerProfile },
+];
+
+const router = new VueRouter({
+  routes
+})
 Vue.config.productionTip = false;
 Vue.use(Buefy, {
   // ...
 });
-Vue.prototype.$axios = axios;
+Vue.use(VueRouter, {
+  // ...
+});
 new Vue({
   render: h => h(App),
-  mounted() {
-    // this.$axios
-    //   .get("http://api.football-data.org/v2/areas/")
-    //   .then(response => (this.info = response));
-    const options = {
-      method: "GET",
-      headers: { "X-Auth-Token": "de41491bcce54e58a400640d7fe71ec0" },
-      url: "http://api.football-data.org/v2/areas",
-      dataType: "json"
-    };
-    this.$axios(options).then(response => console.log(response.status));
-  }
+  router: router
 }).$mount("#app");

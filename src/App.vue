@@ -1,3 +1,4 @@
+
 <template>
   <div class="container">
     <b-navbar>
@@ -20,26 +21,26 @@
         </b-navbar-item>
       </template>
     </b-navbar>
-
     <div class="notification">
-      <ion-icon name="heart"></ion-icon>
-      <strong>centered</strong> on desktop.
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-
 
 export default {
-  name: "App"
-  // components: {
-  //   HelloWorld
-  // }
+  name: "App",
+
+  data() {
+    return {};
+  },
+  method: {
+    getClubList: function() {
+      console.log("areaId");
+    }
+  }
 };
-
-
 </script>
 
 <style>
