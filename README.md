@@ -5,7 +5,8 @@ All data provided is grabbed from hosted API (https://www.football-data.org/)
 
 # How to Run
 1. npm install
-2. cd vue-football-club&npm run serve
+2. cd vue-football-club
+3. npm run serve
 
 # Third Party
 1. <a href="https://buefy.org/"> Buefy</a>
