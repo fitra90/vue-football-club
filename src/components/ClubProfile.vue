@@ -10,10 +10,13 @@
     </div>
     <br />
     <div class="columns">
-      <div class="column">First column</div>
-      <div class="column">Second column</div>
-      <div class="column">Third column</div>
-      <div class="column">Fourth column</div>
+      <div class="column is-one-fifth">
+        <img :src="clubData.crestUrl" />
+      </div>
+      <div class="column">
+        <h2>{{clubData.name}}</h2>
+        <p> {{clubData.website}}</p>
+      </div>
     </div>
 
     <ul>
@@ -31,9 +34,9 @@ import axios from "axios";
 export default {
   name: "ClubProfile",
   methods: {
-      goBack: function(n) {
-          this.$router.go(n)
-      }
+    goBack: function(n) {
+      this.$router.go(n);
+    }
   },
   data() {
     return {
@@ -54,4 +57,11 @@ export default {
 };
 </script>
 <style scoped>
+img {
+  width: 200px;
+}
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
 </style>

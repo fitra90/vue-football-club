@@ -13,3 +13,6 @@ Lightweight UI components for Vue.js based on Bulma
 </p>
 2. <a href="https://ionicons.com/"> Ionicons </a>
 <p> Beautifully crafted open source icons </p>
+
+# Notes
+This application subscribe Free Tier request, so only certain country and club ara available
