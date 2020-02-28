@@ -15,17 +15,39 @@
       </div>
       <div class="column">
         <h2>{{clubData.name}}</h2>
-        <p> {{clubData.website}}</p>
+        <p class="weblink" @click="goToWebsite">{{clubData.website}}</p>
+        <br />
+        <p>{{clubData.venue}}</p>
+        <p>{{clubData.address}}</p>
+        <p>{{clubData.phone}}</p>
       </div>
     </div>
 
-    <ul>
-      <li v-for="player in clubSquad" :key="player.id">
-        <router-link
-          :to="{ name: 'player-profile', params: {playerId: player.id } }"
-        >{{player.name}}</router-link>
-      </li>
-    </ul>
+    <table class="table table is-hoverable">
+      <thead>
+        <tr>
+          <th style="width:80%">Player Name</th>
+          <th style="width:20%">Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="player in clubSquad" :key="player.id">
+          <td>
+            <router-link
+              :to="{ name: 'player-profile', params: {playerId: player.id, clubName:clubData.name } }"
+            >{{player.name}}</router-link>
+          </td>
+          <td v-if="player.position == null">
+            <i>
+              Coach
+            </i>
+          </td>
+          <td v-else> 
+            {{player.position}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 <script>
@@ -36,6 +58,9 @@ export default {
   methods: {
     goBack: function(n) {
       this.$router.go(n);
+    },
+    goToWebsite: function() {
+      location.href = this.clubData.website;
     }
   },
   data() {
@@ -63,5 +88,18 @@ img {
 h2 {
   font-size: 40px;
   font-weight: bold;
+}
+
+.is-one-fifth {
+  text-align: center;
+}
+
+td a:hover {
+  font-weight: bold;
+}
+
+.weblink {
+  cursor: pointer;
+  color:blue
 }
 </style>

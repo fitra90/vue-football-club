@@ -24,7 +24,7 @@ const routes = [
     component: ClubProfile
   },
   {
-    path: "/player-profile/:playerId",
+    path: "/player-profile/:clubName/:playerId/",
     name: "player-profile",
     component: PlayerProfile
   }
