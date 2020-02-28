@@ -15,4 +15,4 @@ Lightweight UI components for Vue.js based on Bulma
 <p> Beautifully crafted open source icons </p>
 
 # Notes
-This application subscribe Free Tier request, so only certain country and club available
+This application subscribe Free Tier request, so only certain country and club ara available
